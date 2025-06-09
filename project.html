@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects - Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+    /* Base and Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Outfit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: black;
+      color: white;
+      line-height: 1.6;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: 4rem;
+      padding-bottom: 5rem;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+  
+    main {
+      max-width: 1200px;
+      margin: 2rem auto 4rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #FD5825;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+      user-select: none;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .project-card {
+      background: black;
+      padding: 1.75rem 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      color: white;
+      font-weight: 500;
+      font-size: 1.125rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .project-card:hover,
+    .project-card:focus {
+      box-shadow: 0 14px 32px rgba(0,0,0,0.14);
+      outline: none;
+      transform: translateY(-5px);
+    }
+    .project-title {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #FD5825;
+      user-select: none;
+    }
+    .project-description {
+      font-weight: 400;
+      user-select: none;
+      color: white;
+      /* white-space: pre-wrap; */
+    }
+    .project-link {
+      margin-top: auto;
+      text-align: center;
+      background: black;
+      border: 2px solid #FD5825;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .project-link:hover {
+      background: #FD5825;
+      color: black
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main {
+        width: 90%;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .project-card {
+        font-size: 1rem;
+        padding: 1.25rem 1.5rem;
+      }
+      .project-title {
+        font-size: 1.125rem;
+      }
+    }
+ /* Header/Nav */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: black;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 0.06);
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #FD5825;
+  letter-spacing: 0.07em;
+  user-select: none;
+  font-variant: small-caps;
+}
+
+/* Nav links horizontal */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: white;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: #FD5825;
+      border-bottom-color: #FD5825;
+      outline: none;
+    }
+    /* Hamburger menu button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1100;
+    }
+    .menu-toggle:focus-visible {
+      outline: 2px solid #FD5825;
+      outline-offset: 4px;
+    }
+    .menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background: #FD5825;
+      border-radius: 2px;
+      transition: all 0.3s linear;
+      position: relative;
+      transform-origin: 1px;
+    }
+    /* Animate hamburger when active */
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+    /* Mobile nav menu */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: black;
+        flex-direction: column;
+        width: 250px;
+        box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.20);
+        padding: 1.5rem 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        height: calc(100% - 60px);
+        overflow-y: auto;
+        gap: 0;
+        border-radius: 0 0 0 12px;
+      }
+      .nav-links.show {
+        transform: translateX(0);
+      }
+      .nav-links a {
+        padding: 1rem 2rem;
+        font-size: 1.25rem;
+        border-bottom: 1px solid #FD5825;
+        width: 100%;
+      }
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+      .nav-links a:hover,
+      .nav-links a:focus {
+        background-color: white;
+        color: #FD5825;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+ <header>
+    <nav>
+      <div class="logo">Md Sahil Khan</div>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skilss">Skills</a>
+        <a href="certificate.html" >Certificates</a>
+        <a href="experience.html">Experience</a>
+        <a href="Academic_Activity.html">Academic Activities</a>
+        <a href="project.html" aria-current="page">Projects</a>
+        <!-- <a href="#blog">Blog</a> -->
+        <a href="index.html#contact-container">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Projects</h1>
+    <section class="projects-grid" aria-label="List of projects">
+      <article class="project-card" tabindex="0">
+        <div class="project-title">Portfolio</div>
+        <div class="project-description">
+          A sleek and responsive portfolio website showcasing my skills, projects, and professional background. Built using HTML, CSS, and JavaScript, the site includes smooth navigation, engaging animations, and links to my GitHub, LinkedIn, and email.
+        </div>
+        <a href="index.html" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+      </article>
+      <!-- <article class="project-card" tabindex="0">
+        <div class="project-title">E-commerce Website</div>
+        <div class="project-description">
+          An online store built with React and Node.js, featuring user authentication and payment integration.
+        </div>
+        <a href="https://github.com/yourusername/e-commerce-website" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+      </article>
+      <article class="project-card" tabindex="0">
+        <div class="project-title">Personal Blog</div>
+        <div class="project-description">
+          A blogging platform where users can create, edit, and share their articles.
+        </div>
+        <a href="https://github.com/yourusername/personal-blog" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+      </article>
+      <article class="project-card" tabindex="0">
+        <div class="project-title">Weather App</div>
+        <div class="project-description">
+          A simple weather application that fetches data from a weather API and displays current weather conditions.
+        </div>
+        <a href="https://github.com/yourusername/weather-app" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+      </article>
+      <article class="project-card" tabindex="0">
+        <div class="project-title">Chat Application</div>
+        <div class="project-description">
+          A real-time chat application built with WebSocket for instant messaging.
+        </div>
+        <a href="https://github.com/yourusername/chat-application" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+      </article> -->
+    </section>
+  </main>
+</body>
+</html>

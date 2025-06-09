@@ -1,0 +1,365 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <title>Academic Activities - Portfolio</title> 
+        <style> @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+/* Base and Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Outfit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: black;
+  color: white;
+  line-height: 1.6;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: black;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 0.1);
+}
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #FD5825;
+  letter-spacing: 0.07em;
+  user-select: none;
+  font-variant: small-caps;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.nav-links a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: wite;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #FD5825;
+  border-bottom-color: #FD5825;
+  outline: none;
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #FD5825;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+  user-select: none;
+  text-align: center;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.activity-card {
+  background: black;
+  padding: 1.75rem 2rem;
+  border: #FD5825 2px solid;    
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  color: white;
+  font-weight: 500;
+  font-size: 1.125rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.activity-card:hover,
+.activity-card:focus {
+  box-shadow: 0 14px 32px rgba(0,0,0,0.14);
+  outline: none;
+  transform: translateY(-5px);
+}
+.activity-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: white;
+  user-select: none;
+}
+.activity-date {
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  font-style: italic;
+  user-select: none;
+}
+.activity-description {
+  font-weight: 400;
+  user-select: none;
+  color: white;
+  white-space: pre-wrap;
+}
+.see-more-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+.see-more-btn {
+  background: transparent;
+  border: 2px solid #FD5825;
+  color: #FD5825;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.75rem 3rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.see-more-btn:hover,
+.see-more-btn:focus {
+  background-color: #FD5825;
+  color: black;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main {
+    width: 90%;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .activity-card {
+    font-size: 1rem;
+    padding: 1.25rem 1.5rem;
+  }
+  .activity-title {
+    font-size: 1.125rem;
+  }
+  .see-more-btn {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+  }
+}
+/* Header/Nav */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: black;
+  box-shadow: 0 1px 8px rgb(0 0 0 / 0.06);
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #FD5825;
+  letter-spacing: 0.07em;
+  user-select: none;
+  font-variant: small-caps;
+}
+
+/* Nav links horizontal */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      color: white;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: #FD5825;
+      border-bottom-color: #FD5825;
+      outline: none;
+    }
+    /* Hamburger menu button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 28px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1100;
+    }
+    .menu-toggle:focus-visible {
+      outline: 2px solid #FD5825;
+      outline-offset: 4px;
+    }
+    .menu-toggle span {
+      width: 100%;
+      height: 3px;
+      background: #FD5825;
+      border-radius: 2px;
+      transition: all 0.3s linear;
+      position: relative;
+      transform-origin: 1px;
+    }
+    /* Animate hamburger when active */
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+    /* Mobile nav menu */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: black;
+        flex-direction: column;
+        width: 250px;
+        box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.20);
+        padding: 1.5rem 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        height: calc(100% - 60px);
+        overflow-y: auto;
+        gap: 0;
+        border-radius: 0 0 0 12px;
+      }
+      .nav-links.show {
+        transform: translateX(0);
+      }
+      .nav-links a {
+        padding: 1rem 2rem;
+        font-size: 1.25rem;
+        border-bottom: 1px solid #FD5825;
+        width: 100%;
+      }
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+      .nav-links a:hover,
+      .nav-links a:focus {
+        background-color: white;
+        color: #FD5825;
+      }
+    }
+</style> 
+</head> 
+<body> 
+ <header>
+    <nav>
+      <div class="logo">Md Sahil Khan</div>
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="certificate.html" >Certificates</a>
+        <a href="experience.html">Experience</a>
+        <a href="Academic_Activity.html" aria-current="page">Academic Activities</a>
+        <a href="project.html">Projects</a>
+        <!-- <a href="#blog">Blog</a> -->
+        <a href="index.html#contact-container">Contact</a>
+      </div>
+    </nav>
+  </header>
+    
+
+
+
+    <main> 
+        <h1>Academic Activities</h1> 
+        <section class="activities-grid" aria-label="List of academic activities"> 
+            <article class="activity-card" tabindex="0"> 
+                <div class="activity-title">Student Coordinator, Training and Placement Cell, Parul University</div> 
+                <div class="activity-date">April 2024 - PRESENT</div> 
+                <div class="activity-description"> Coordinating on-campus recruitment drives by liaising between recruiters, students and the institute. </div> 
+            </article> 
+            <article class="activity-card" tabindex="0"> 
+                <div class="activity-title">Coordinator, Job Fair 2024-25, Parul University</div> 
+                <div class="activity-date">16 December 2024 - 20 December 2024</div> 
+                <div class="activity-description"> Provided on-the-ground support to employers and ensured that job seekers were actively engaging with recruiters, circulating around booths and maximizing the opportunity. </div> 
+            </article> 
+            <article class="activity-card" tabindex="0"> 
+                <div class="activity-title">Coordinator, HR Conclave 2024, Parul University</div> 
+                <div class="activity-date">7 December 2024</div> 
+                <div class="activity-description"> Provided real-time technical support and monitored the event from a technical perspective. </div> 
+            </article> <article class="activity-card" tabindex="0"> 
+                <div class="activity-title">Participant</div> 
+                <div class="activity-description">Smart India Hackathon 2024</div> 
+            </article> <article class="activity-card" tabindex="0"> 
+                <div class="activity-title">Participant</div> 
+                <div class="activity-description">Tech-Expo 2025, Parul University</div> 
+            </article> 
+        </section> 
+            <!-- <div class="see-more-container"> 
+                <button type="button" class="see-more-btn" aria-label="See more academic activities">See More</button> 
+            </div>  -->
+        </main> 
+    </body> 
+    </html>
